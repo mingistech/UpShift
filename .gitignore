@@ -1,0 +1,12 @@
+.DS_Store
+.runtime/
+work/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+__pycache__/
+# Local video samples and rendered footage
+*.mp4
+*.mov
+*.m4v
+.upshift-*/

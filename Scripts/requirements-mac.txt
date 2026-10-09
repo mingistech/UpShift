@@ -1,0 +1,12 @@
+# Direct dependencies; setup uses the fully pinned requirements-mac.lock.
+torch==2.7.0
+torchvision==0.22.0
+numpy==2.2.2
+opencv-python-headless==4.11.0.86
+einops
+safetensors
+requests
+pillow
+packaging
+imageio-ffmpeg
+av
