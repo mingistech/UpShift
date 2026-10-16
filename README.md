@@ -4,6 +4,8 @@ Upshift is a native macOS app that uses AI models to upscale videos to 2× resol
 Built with SwiftUI, it offers Apple silicon acceleration, HEVC MP4 output, and
 preserved frame rates and audio through a simple interface. Processing stays on your Mac.
 
+![Upshift macOS app window showing video selection and upscale settings](docs/images/upshift-window.png)
+
 ## Download
 
 Download **UpShift-1.0.1-macOS-arm64.zip** from the
