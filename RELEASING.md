@@ -1,6 +1,6 @@
 # Releasing Upshift
 
-The app's version is 1.0 (build 1), bundle identifier `com.mingistech.UpShift`.
+The app's version is 1.0.1 (build 1), bundle identifier `com.mingistech.UpShift`.
 The release architecture is arm64. A release must bundle the engine; signing
 only the development app leaves it dependent on the checkout's `.runtime`.
 
@@ -58,9 +58,9 @@ from the stapled app. Verify the final extracted archive before uploading it.
 
 ## Publish
 
-Publish tag `v1.0` against the tested source commit. Attach:
+Publish tag `v1.0.1` against the tested source commit. Attach:
 
-- `UpShift-1.0-macOS-arm64.zip` (stapled app)
+- `UpShift-1.0.1-macOS-arm64.zip` (stapled app)
 - the source companion containing the pinned RVE source, FFmpeg sources, vendor
   build recipes/patches and codec sources
 - `SHA256SUMS.txt`

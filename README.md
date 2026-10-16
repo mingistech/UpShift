@@ -6,8 +6,8 @@ preserved frame rates and audio through a simple interface. Processing stays on 
 
 ## Download
 
-Download **UpShift-1.0-macOS-arm64.zip** from the
-[1.0 release](https://github.com/mingistech/UpShift/releases/tag/v1.0), unzip it,
+Download **UpShift-1.0.1-macOS-arm64.zip** from the
+[1.0.1 release](https://github.com/mingistech/UpShift/releases/tag/v1.0.1), unzip it,
 and move **UpShift.app** to Applications. The release includes its processing
 engine and models; Python, Homebrew, and separate model downloads are not needed.
 
@@ -27,7 +27,7 @@ path and offers **Show in Finder**. It remembers the last completed export.
 - Optional experimental compression cleanup, **off by default**. It can make
   skin and texture look artificial; leave it off when natural detail matters.
 
-Version 1.0 supports SDR, constant-frame-rate video with one video track. HDR,
+Version 1.0.1 supports SDR, constant-frame-rate video with one video track. HDR,
 variable frame rates, and rotation metadata are rejected with an explanation.
 Subtitles are omitted. Audio must be AAC, MP3, ALAC, AC-3, or E-AC-3 for MP4 copying.
 Upscaling cannot guarantee recovery of detail absent from the source.

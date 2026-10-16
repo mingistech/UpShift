@@ -1,4 +1,4 @@
-# Third-party components in Upshift 1.0
+# Third-party components in Upshift 1.0.1
 
 Upshift runs the following components locally. Their respective licenses and
 copyright notices remain applicable; these components are provided without warranty.
@@ -32,7 +32,7 @@ copyright notices remain applicable; these components are provided without warra
   https://github.com/PyAV-Org/pyav-ffmpeg/tree/9.0.2-1
 
 Upshift source and release source companions:
-https://github.com/mingistech/UpShift/releases/tag/v1.0
+https://github.com/mingistech/UpShift/releases/tag/v1.0.1
 
 Library replacement / rebuilding: use the published source and packaging scripts
 to rebuild and sign your own copy. Changing bundled code invalidates the original
