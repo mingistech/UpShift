@@ -1,6 +1,6 @@
 # Releasing Upshift
 
-The app's version is 1.0.1 (build 1), bundle identifier `com.mingistech.UpShift`.
+The app's version is 1.0.1 (build 2), bundle identifier `com.mingistech.UpShift`.
 The release architecture is arm64. A release must bundle the engine; signing
 only the development app leaves it dependent on the checkout's `.runtime`.
 
