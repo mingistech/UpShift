@@ -11,10 +11,6 @@ copyright notices remain applicable; these components are provided without warra
   4.0. The model is unmodified. This model carries a noncommercial restriction.
   https://github.com/Sirosky/Upscale-Hub/releases/tag/OpenProteus
   Full terms: `Contents/SharedSupport/Licenses/OpenProteus-LICENSE.md`.
-- **DeH264 RTMoSR**: the unmodified optional experimental model distributed by
-  the RVE model collection. Model checksum and download URL are in
-  `Scripts/setup-engine.sh` in the Upshift source repository.
-  https://github.com/TNTwise/real-video-enhancer-models/releases/tag/models
 - **Python 3.12.14**: Python Software Foundation license and included component
   notices, in the bundled Python standard library's `LICENSE.txt`.
   https://www.python.org/

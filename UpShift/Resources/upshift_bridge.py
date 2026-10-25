@@ -164,21 +164,21 @@ def run(args):
     import torch
     import imageio_ffmpeg
     if not torch.backends.mps.is_available():
-        raise ValueError("Apple GPU processing is unavailable. Run Upshift on an Apple silicon Mac.")
+        raise ValueError("Apple GPU processing is unavailable. Upshift requires an Apple silicon Mac.")
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     backend = runtime / config["backend"]
     model = runtime / config["model"]
     if not backend.is_file() or not model.is_file():
-        raise ValueError("The engine or model is missing. Run Scripts/setup-engine.sh again.")
+        raise ValueError("The built-in engine or AI model is missing. Reinstall Upshift.")
     if hashlib.sha256(model.read_bytes()).hexdigest() != config["model_sha256"]:
-        raise ValueError("The model file failed its integrity check. Run setup again.")
+        raise ValueError("The built-in AI model failed verification. Reinstall Upshift.")
     restoration = None
     if args.restore_compression:
         if "restoration_model" not in config:
-            raise ValueError("The cleanup model is not installed. Run Scripts/setup-engine.sh again.")
+            raise ValueError("Compression cleanup is not included in this edition.")
         restoration = runtime / config["restoration_model"]
         if not restoration.is_file() or hashlib.sha256(restoration.read_bytes()).hexdigest() != config["restoration_sha256"]:
-            raise ValueError("The cleanup model failed its integrity check. Run setup again.")
+            raise ValueError("The cleanup model failed verification.")
     # Keep an existing destination intact until the complete render passes verification.
     with tempfile.TemporaryDirectory(prefix=".upshift-", dir=destination.parent) as scratch:
         scratch = Path(scratch)

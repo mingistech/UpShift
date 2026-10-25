@@ -1,5 +1,8 @@
 # Upshift
 
+> **Mac App Store preparation branch:** sandbox prototype in progress.
+> Start with [App Store readiness](AppStore/READINESS.md); this branch is not ready for submission.
+
 Upshift is a native macOS app that uses AI models to upscale videos to 2× resolution.
 Built with SwiftUI, it offers Apple silicon acceleration, HEVC MP4 output, and
 preserved frame rates and audio through a simple interface. Processing stays on your Mac.
@@ -26,8 +29,6 @@ path and offers **Show in Finder**. It remembers the last completed export.
 - Original compact HEVC VideoToolbox preset: quality 65, 8-bit SDR MP4.
 - Original constant frame rate and compatible audio tracks preserved.
 - Progress, cancellation, and verification before replacing an existing output.
-- Optional experimental compression cleanup, **off by default**. It can make
-  skin and texture look artificial; leave it off when natural detail matters.
 
 Version 1.0.1 supports SDR, constant-frame-rate video with one video track. HDR,
 variable frame rates, and rotation metadata are rejected with an explanation.
@@ -38,31 +39,18 @@ Upscaling cannot guarantee recovery of detail absent from the source.
 noncommercial restriction. See [third-party notices](UpShift/Resources/THIRD_PARTY_NOTICES.md)
 for attribution, licenses, and source references.
 
-## Build from source
+## Build this App Store branch
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
-
-```sh
-./Scripts/setup-engine.sh
-```
-
-Open `UpShift.xcodeproj`, choose the **UpShift** scheme and **My Mac**, and Run.
-Development builds use the checkout's `.runtime` folder. Packaged release builds
-prefer the engine inside the app. You can select an external engine under
-**Processing engine & details**.
+Run `Scripts/setup-engine.sh` to install the development engine, then follow
+[App Store readiness](AppStore/READINESS.md) and run `Scripts/prepare-app-store.sh`.
+The resulting local preview is sandboxed and self-contained. Its container is
+separate from the published direct-download app. Opening this project in Xcode
+builds the frontend; engine packaging/signing is performed by the preparation script.
 
 The backend is pinned to RVE commit `8541c46ca14e6f84fc86c5b9d3b75373e25732e5`;
-Python dependencies are pinned in `Scripts/requirements-mac.lock`, and model files
-are verified by SHA-256. The backend runs as a separate local process.
+dependencies and model checksums remain pinned. Model and engine distribution
+rights still need resolution for the App Store. See the readiness document.
 
-## Verification and release packaging
-
-```sh
-xcodebuild -project UpShift.xcodeproj -scheme UpShift -configuration Debug \
-  -derivedDataPath work/DerivedData CODE_SIGNING_ALLOWED=NO build
-.runtime/venv/bin/python Tests/test_pipeline.py
-```
-
-Integration checks exercise actual Apple GPU upscaling, preserved audio and frame
-rates, cleanup, cancellation, safe output replacement, and Finder visibility.
-See [RELEASING.md](RELEASING.md) for standalone packaging and notarization.
+[Validation results](AppStore/VALIDATION.md) record actual signed-sandbox tests.
+[Listing draft](AppStore/METADATA.md) and [privacy-policy draft](AppStore/PRIVACY.md)
+are prepared for review. No App Store submission has been made.

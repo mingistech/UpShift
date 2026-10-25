@@ -32,7 +32,7 @@ struct ContentView: View {
                         VStack(spacing: 14) {
                             Image(systemName: "film.stack").font(.system(size: 44, weight: .light))
                             Text("Drop your video here").font(.title2.weight(.medium))
-                            Text("Start with a Seedance MP4").foregroundStyle(.secondary)
+                            Text("Choose an SDR video from your Mac").foregroundStyle(.secondary)
                             Button("Choose Video…", action: job.chooseVideo)
                                 .buttonStyle(.borderedProminent)
                         }
@@ -55,17 +55,12 @@ struct ContentView: View {
                     Spacer()
                 }
                 Divider()
-                Toggle("AI compression cleanup (experimental)", isOn: $job.restoreCompression)
-                    .disabled(job.isRunning)
-                    .help("Applies full-strength restoration before upscaling. It can reduce compression blocks, but may remove natural texture or give the video an artificial look. Leave off for the original upscale.")
-                Text("Leave off to preserve natural texture. Cleanup may reduce blocks, but can make skin and fine detail look overly smooth or artificial.")
-                    .font(.caption).foregroundStyle(.secondary)
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text(job.status).font(.callout).textSelection(.enabled)
                         Spacer()
                         if job.isRunning {
-                            Button("Cancel", role: .cancel, action: job.cancel).disabled(job.isCancelling)
+                            Button("Cancel", role: .cancel, action: job.cancel).disabled(job.isCancelling || job.isSaving)
                         } else if let output = job.output {
                             Button("Show in Finder") { NSWorkspace.shared.activateFileViewerSelecting([output]) }
                         }
@@ -89,9 +84,8 @@ struct ContentView: View {
                 DisclosureGroup("Processing engine & details", isExpanded: $showDetails) {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Label(job.engineReady ? "Local engine ready" : "Choose the project folder after running setup", systemImage: job.engineReady ? "checkmark.circle" : "exclamationmark.circle")
+                            Label(job.engineReady ? "Built-in engine ready" : "This build is missing its processing engine", systemImage: job.engineReady ? "checkmark.circle" : "exclamationmark.circle")
                             Spacer()
-                            Button("Choose Folder…", action: job.chooseEngine).disabled(job.isRunning)
                         }
                         Text(job.runtimePath).font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
                         Text("Apple GPU processing · 8-bit HEVC MP4 · SDR · Quality 65 · Original frame rate and audio")

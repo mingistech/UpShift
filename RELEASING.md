@@ -1,5 +1,9 @@
 # Releasing Upshift
 
+> This is the Mac App Store preparation branch. Use `AppStore/READINESS.md` and
+> `Scripts/prepare-app-store.sh` for the sandbox preview. The direct-distribution
+> recipe below documents the published GitHub build and is not an App Store export.
+
 The app's version is 1.0.1 (build 2), bundle identifier `com.mingistech.UpShift`.
 The release architecture is arm64. A release must bundle the engine; signing
 only the development app leaves it dependent on the checkout's `.runtime`.
